@@ -213,6 +213,7 @@ Ember.ArrayProxy = Ember.Object.extend(Ember.MutableArray,
 
   replace: function(idx, amt, objects) {
     Ember.assert('The content property of '+ this.constructor + ' should be set before modifying it', this.get('content'));
+    console.log(idx, amt, objects)
     if (get(this, 'content')) this.replaceContent(idx, amt, objects);
     return this;
   },
@@ -234,6 +235,12 @@ Ember.ArrayProxy = Ember.Object.extend(Ember.MutableArray,
   willDestroy: function() {
     this._teardownArrangedContent();
     this._teardownContent();
-  }
+  },
+
+  removeObject: function(obj) {
+    console.log( obj, obj.toString() )
+    this.get('content').removeObject(obj);
+    return this;
+  },
 });
 

@@ -211,5 +211,9 @@ Ember.ArrayController = Ember.ArrayProxy.extend(Ember.ControllerMixin,
     }
 
     this.set('subContainers', Ember.A());
+  },
+
+  removeObject: function() {
+    console.log("called arrayremove");
   }
 });
